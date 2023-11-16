@@ -1,0 +1,58 @@
+﻿<Window x:Class="Resume.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Resume"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="250">
+    <Grid>
+        <StackPanel>
+            <GroupBox Margin="10" Header="Личная Информация">
+                <GroupBox.Content>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock Text="ФИО:" Margin="2"/>
+                            <TextBox Text="{Binding Name}" Margin="2" Width="200"/>
+                            <TextBlock Text="Возраст:" Margin="2"/>
+                        <TextBox Text="{Binding Age}" Margin="2" Width="200"/>
+                    </StackPanel>
+                </GroupBox.Content>
+            </GroupBox>
+            <GroupBox Margin="10" Header="Контактные данные">
+                <GroupBox.Content>
+
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock Text="Email:" Margin="2"/>
+                        <TextBox Text="{Binding Email}" Margin="2" Width="200"/>
+                        <TextBlock Text="Номер телефона:" Margin="2"/>
+                        <TextBox Text="{Binding Phone}" Margin="2" Width="200"/>
+                    </StackPanel>
+                </GroupBox.Content>
+            </GroupBox>
+            <GroupBox Margin="10" Header="Рабочие данные">
+                <GroupBox.Content>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock Text="Образование:" Margin="2"/>
+                        <TextBox Text="{Binding Education}" Margin="2" Width="200" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Опыт работы:" Margin="2"/>
+                        <TextBox Text="{Binding Experience}" Margin="2" Width="200" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Навыки:" Margin="2"/>
+                        <TextBox Text="{Binding Skills}" Margin="2" Width="200" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </GroupBox.Content>
+            </GroupBox>
+            <StackPanel Margin="5">
+                <GroupBox Header="Список резюме" Margin="2">
+                    <StackPanel HorizontalAlignment="Left">
+                        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Width="200" ItemsSource="{Binding summaryModels}" SelectedItem="{Binding SelectedSummary}"/>
+                        <Button Content="Показать" FontSize="15" Margin="10" Padding="3" HorizontalContentAlignment="Center" VerticalAlignment="Center" Command="{Binding ShowInfo}"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Content="Сохранить" FontSize="15" Margin="10" Padding="10" VerticalAlignment="Center" Command="{Binding SaveCommand}"/>
+                <Button Content="Очистить" FontSize="15" Margin="10" Padding="10" VerticalAlignment="Center" Command="{Binding Clearsummary}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
